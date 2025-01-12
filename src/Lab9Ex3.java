@@ -1,6 +1,17 @@
 public class Lab9Ex3 {
     public static void main(String[] args) {
+        Account account = new Account("Jan Kowalski", 1000, "123-456-789");
 
+        try {
+            System.out.println("Attempting transfer...");
+            account.transfer(1500);
+        } catch (NotEnoughMoneyException e) {
+            System.out.println("Insufficient funds: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            System.out.println("Current balance: " + account.getBalance());
+        }
     }
 }
 
